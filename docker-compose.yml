@@ -12,3 +12,14 @@ services:
     env_file: .env
     environment:
       - HOST=$HOST
+  mongodb:
+    image: 'mongo'
+    container_name: 'mongodb-test'
+    environment:
+      - MONGO_INITDB_DATABASE=test
+      - MONGO_INITDB_ROOT_USERNAME=test
+      - MONGO_INITDB_ROOT_PASSWORD=test123
+    volumes:
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017:27017'
